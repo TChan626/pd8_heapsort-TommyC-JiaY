@@ -1,18 +1,19 @@
 //Tommy Chan
 //APCS2 pd 8
-//2014-05-20
+//2014-05-21
+//HW 42
 
 import java.util.ArrayList;
 
 public class Heapsort{
-
+    
     private ALHeap heap;
 
     public Heapsort(){
 	heap = new ALHeap();
     }
     
-    private String toString(Integer[]data){
+    private String toString(int[]data){
 	String a = "[";
 	for(int i = 0; i < data.length - 1; i ++){
 	    a += data[i] + ", ";
@@ -21,7 +22,7 @@ public class Heapsort{
 	return a + "]";
     }
 
-    public Integer[] sort(Integer[]data){
+    public int[] sort(int[]data){
 	System.out.println(toString(data));
 	int length = data.length;
 	if(data.length == 0)
@@ -33,7 +34,7 @@ public class Heapsort{
 	    heap.add(data[i]);
 	}
 
-	Integer[] retArr = new Integer[data.length];
+	int[] retArr = new int[data.length];
 	for(int a = 0; a < length; a ++){
 	    retArr[a] = heap.removeMin();
 	}
@@ -42,12 +43,8 @@ public class Heapsort{
 	return retArr;
     }
 
-    public static String toString(ALHeap heap){
-	return heap.toString();
-    }
-
     public static void main(String[]args){
-	Integer[] ints = {1,3,5,7,9,2,4,6,8,10,11,13,15,17,19,12,14,16,18,20};
+	Integer[] ints = {2,15,19,18,12,22,5,4,8,10,6,7,20,3,1,25,17,23,13,16,21,14,24,9,11};
 	Heapsort heaps = new Heapsort();
 
 	heaps.sort(ints);
