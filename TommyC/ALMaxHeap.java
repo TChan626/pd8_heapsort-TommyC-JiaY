@@ -1,6 +1,6 @@
 /*****************************************************
  * class ALMaxHeap
- * Implements a min heap using an ArrayList as underlying container
+ * Implements a max heap using an ArrayList as underlying container
  *****************************************************/
 
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class ALMaxHeap {
       * Returns max value in heap
       * Postcondition: Heap remains unchanged.
       *****************************************************/
-    public Integer peekMax() { 
+    public Integer peekMin() { 
 	if ( _heap.size() < 1 )
 	    return null;
 	else
@@ -111,7 +111,7 @@ public class ALMaxHeap {
 	    return null;
 
 	//store root value for return at end of fxn
-	Integer retVal = peekMax();
+	Integer retVal = peekMin();
 
 	//store val about to be swapped into root
 	Integer foo = _heap.get( _heap.size() - 1);
