@@ -1,4 +1,9 @@
 /*****************************************************
+Tommy Chan
+APCS2 pd 8
+2014-05-22
+HW #43
+
  * class RunMed
  * Implements an online algorithm to track the median of a growing dataset
  * Maintains 2 heaps: minheap for upper half of dataset, maxheap for lower half
