@@ -6,6 +6,15 @@
  *  - max of left heap  (lower range)
  *  - min of right heap (upper range)
  *  - mean of top of each heap
+<<<<<<< HEAD
+=======
+
+Approach:
+If it's empty, insert it to the left
+If the difference between the number of elements in the heaps is > 1, fix it
+Insert element to the left or right depending on its value compared to the median
+Continue until final median is found.
+>>>>>>> c3666260c15095e84da7b9621a1a227d8178a67c
  *****************************************************/
 
 public class RunMed {
@@ -13,6 +22,11 @@ public class RunMed {
     //instance vars
     private ALMaxHeap leftHeap;
     private ALMinHeap rightHeap;
+<<<<<<< HEAD
+=======
+    private int timesL;
+    private int timesR;
+>>>>>>> c3666260c15095e84da7b9621a1a227d8178a67c
 
 
     /*****************************************************
@@ -21,7 +35,14 @@ public class RunMed {
     public RunMed() 
     { 
 	/*** YOUR IMPLEMENTATION HERE ***/
+<<<<<<< HEAD
     }//O(?)
+=======
+	leftHeap = new ALMaxHeap();
+	rightHeap = new ALMinHeap();
+	timesL = timesR = 0;
+    }//O(1)
+>>>>>>> c3666260c15095e84da7b9621a1a227d8178a67c
 
 
 
@@ -30,8 +51,17 @@ public class RunMed {
      *****************************************************/
     public int getMedian() 
     {
+<<<<<<< HEAD
  	/*** YOUR IMPLEMENTATION HERE ***/
     }//O(?)
+=======
+	if(leftHeap.isEmpty())
+	    return rightHeap.peekMin();
+	else if(rightHeap.isEmpty())
+	    return leftHeap.peekMin();
+	return (leftHeap.peekMin() + rightHeap.peekMin()) / 2; 
+    }//O(1)
+>>>>>>> c3666260c15095e84da7b9621a1a227d8178a67c
 
 
 
@@ -43,7 +73,33 @@ public class RunMed {
     public void insert( int addVal )
     {
      	/*** YOUR IMPLEMENTATION HERE ***/
+<<<<<<< HEAD
      }//O(?)
+=======
+	if(isEmpty()){
+	    leftHeap.add(addVal);
+	}else if(addVal <= getMedian()){
+	    leftHeap.add(addVal);
+	    timesL ++;
+	}else if(addVal > getMedian()){
+	    rightHeap.add(addVal);
+	    timesR ++;
+	}
+	
+	if(Math.abs(timesL - timesR) > 1){
+	    if(timesL > timesR){
+		rightHeap.add(leftHeap.removeMax());
+		timesL --;
+		timesR ++;
+	    }else{
+		leftHeap.add(rightHeap.removeMin());
+		timesR --;
+		timesL ++;
+	    }
+	}
+	
+     }//O(1)
+>>>>>>> c3666260c15095e84da7b9621a1a227d8178a67c
 
 
 
@@ -53,15 +109,24 @@ public class RunMed {
      *****************************************************/
     public boolean isEmpty() 
     {
+<<<<<<< HEAD
      	/*** YOUR IMPLEMENTATION HERE ***/
     }//O(?)
+=======
+	return leftHeap.isEmpty() && rightHeap.isEmpty();
+    }//O(1)
+>>>>>>> c3666260c15095e84da7b9621a1a227d8178a67c
 
 
 
     //main method for testing
     public static void main( String[] args ) {
 
+<<<<<<< HEAD
 	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~
+=======
+
+>>>>>>> c3666260c15095e84da7b9621a1a227d8178a67c
 
         RunMed med = new RunMed();
 
@@ -79,7 +144,11 @@ public class RunMed {
 
         med.insert(9);
 	System.out.println( med.getMedian() ); //5
+<<<<<<< HEAD
 
+=======
+	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~
+>>>>>>> c3666260c15095e84da7b9621a1a227d8178a67c
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     }//end main()
